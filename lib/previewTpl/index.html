@@ -60,6 +60,7 @@ table {
 }
     </style>
     <script type="text/javascript">
+    /* eslint-disable */
     function fixAutoResetRemBug() {
         document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + 'px';
         setTimeout(function () {
@@ -83,7 +84,8 @@ table {
     <script src="//s.bdstatic.com/common/openjs/aio.js"></script>
 </head>
 <body>
-    <script type="text/javascript">    
+    <script type="text/javascript">
+    /* eslint-disable */
     fixAutoResetRemBug();
     window.onresize = function(){
         fixAutoResetRemBug();
