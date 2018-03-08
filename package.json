@@ -1,6 +1,6 @@
 {
   "name": "oawidget-cli",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "基于san(MVVM framework)的组件库cli工具",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,7 @@
     "@baidu/oap-app-entry": "^2.3.2",
     "babel-register": "^6.26.0",
     "chalk": "^2.1.0",
+    "chalk-animation": "^1.4.0",
     "commander": "^2.11.0",
     "etpl": "^3.2.0",
     "progress": "^2.0.0",

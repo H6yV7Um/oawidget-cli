@@ -1,23 +1,28 @@
 #!/usr/bin/env node
 
-var program = require('commander');
-
-var create = require('../lib/create');
-var view = require('../lib/view');
-var test = require('../lib/test');
-var build = require('../lib/build');
-var publish = require('../lib/publish');
-var config = require('../lib/config');
-var version = require('../package.json').version;
+const program = require('commander');
+const init = require('../lib/init');
+const help = require('../lib/help');
+const debug = require('../lib/debug');
+const config = require('../lib/config');
+const version = require('../lib/version');
+const publish = require('../lib/publish');
 
 program
-    .version(version)
-    .description('运营活动平台化-组件库CLI工具')
-    .option('-c, --create <component-name>', '创建项目脚手架', create)
-    .option('-v, --view', '组件开发效果预览', view)
-    .option('-t, --test', '组件配置规范检查', test)
-    .option('-b, --build', '组件打包构建', build)
-    .option('-p, --publish', '组件发布上线', publish)
-    .option('--config [key=value]', '修改oawidget配置项', config)
-    .option('--config list', '列出oawidget配置项', config)
-    .parse(process.argv);
+    .option('-h, --help', 'output usage infomation', help)
+    .option('-v, --version', 'output the version number', version)
+    .option('-c, --config [key=value]', 'enable configure userName/token/uploadHost', config);
+
+program
+    .command('init <cmptName>')
+    .action(init);
+
+program
+    .command('debug')
+    .action(debug);
+
+program
+    .command('publish')
+    .action(publish);
+
+program.parse(process.argv);
