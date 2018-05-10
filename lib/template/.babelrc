@@ -1,9 +1,14 @@
 {
-    "presets": [
-        "es2015",
-        "stage-1"
-    ],
-    "plugins": [
-        "transform-runtime"
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        "modules": false
+      }
     ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread"
+  ]
 }

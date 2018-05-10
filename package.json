@@ -1,10 +1,7 @@
 {
   "name": "oawidget-cli",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "基于san(MVVM framework)的组件库cli工具",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "bin": {
     "oawidget": "bin/oawidget"
   },
@@ -23,17 +20,15 @@
   },
   "homepage": "https://github.com/X-Jray/oawidget-cli#readme",
   "dependencies": {
-    "@baidu/oap-app-entry": "^2.3.2",
-    "babel-register": "^6.26.0",
-    "chalk": "^2.1.0",
-    "chalk-animation": "^1.4.0",
-    "commander": "^2.11.0",
+    "@babel/core": "^7.0.0-beta.46",
+    "chalk": "^2.4.1",
+    "chalk-animation": "^1.6.0",
+    "commander": "^2.15.1",
     "etpl": "^3.2.0",
-    "progress": "^2.0.0",
-    "prompt": "^1.0.0",
-    "san": "^3.2.10",
-    "shelljs": "^0.7.8",
-    "superagent": "^3.8.1"
+    "request": "^2.85.0",
+    "shelljs": "^0.8.2",
+    "superagent": "^3.8.3"
   },
-  "preferGlobal": true
+  "preferGlobal": true,
+  "devDependencies": {}
 }

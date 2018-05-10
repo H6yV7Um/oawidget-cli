@@ -9,26 +9,33 @@ npm i -g oawidget-cli
 // 2. 查看CLI工具帮助
 oawidget-cli -h
 
-Usage: oawidget [options]
-运营活动平台化-组件库CLI工具
+```
+Usage: oawidget <command> [options]
+
+运营活动平台化-组件开发CLI工具
+
+Commands:
+
+    init <cmptName>     scaffold with specifed template, named as <cmptName>
+    debug               launch a server for debugging
+    publish             inspect xx.editor.js file, build source code then deploy component to `OAP SERVER`
+
 Options:
--V, --version                   output the version number
--c, --create <component-name>   创建项目脚手架
--v, --view                      组件开发效果预览
--t, --test                      组件配置规范检查
--b, --build                     组件打包构建
--p, --publish                   组件发布上线
--h, --help                      output usage information
+
+    -h, --help                  output usage infomation
+    -v, --version               output the version number
+    -c, --config list           output config list
+    -c, --config [key=value]    enable configure userName/token/uploadUrl
 ```
 
 ### 创建项目脚手架
 
 ```
-// 组件名命名规范(首字母大写+驼峰命名) [YourName?][common/which activity][cmptName], 如下例
+// 组件名命名规范(首字母大写+驼峰命名), 如下例
 // 公用组件
-oawidget-cli -c CommonButton
+oawidget-cli init CommonButton
 // 活动私有组件
-oawidget-cli -c ZxuanjianXunrenButton
+oawidget-cli init LoginRedpackButton
 ```
 
 脚手架目录结构
@@ -44,17 +51,17 @@ oawidget-cli -c ZxuanjianXunrenButton
 |
 -- src // 组件源码文件在这里编写
 |    |
-|    -- ZxuanjianXunrenButton
+|    -- XunrenButton
 |         |
-|          -- ZxuanjianXunrenButton.js // 组件js源码，需开发者编写
+|          -- XunrenButton.js // 组件js源码，需开发者编写
 |          |
-|          -- ZxuanjianXunrenButton.editor.js // 对运营活动配置平台暴露的可编辑属性，需开发者编写
+|          -- XunrenButton.editor.js // 对运营活动配置平台暴露的可编辑属性，需开发者编写
 |          |
 |          -- index.js // 组件入口文件，自动生成
 |          |
 |          -- index.styl // 组件样式文件，需开发者编写
 |          |
-|          -- xx.png|jpeg|jpg|webp //若小图（80K以下），可添加至这里；若大图，请一定作为配置项，到运营活动配置平台自行上传
+|          -- xx.png|jpeg|jpg|webp //若小图（30K以下），可添加至这里；若大图，请一定作为配置项，到运营活动配置平台自行上传
 |
 -- test
 |
@@ -70,13 +77,13 @@ __ package.json
 ### 介入开发
 
 ```
-// cd [YourName?][common/which activity][cmptName], 如下例
-cd ZxuanjianXunrenButton
+// cd [cmptName], 如下例
+cd CommonButton
 // 如果你在用sublime
 subl ./
 ```
 
-请确保在coding前，你已经对你要开发的组件有了完整的设计思路，这样，你就可以写 `ZxuanjianXunrenButton.eidtor.js`了，配置文件里设置暴露给平台供用户配置的属性
+请确保在coding前，你已经对你要开发的组件有了完整的设计思路，这样，你就可以写 `CommonButton.eidtor.js`了，配置文件里设置暴露给平台供用户配置的属性
 
 支持用户配置的数据类型：
 
@@ -99,34 +106,17 @@ subl ./
 ### 开发调试
 
 ```
-oawidget-cli -v
+oawidget-cli debug
 ```
 
 自动完成配置注入和组件引入，打开一个浏览器窗口，供开发者开发调试。
-
-
-### 检查配置文件有效性
-
-完成组件开发，准备提交到平台仓库前，执行检查命令，检查下配置文件的有效性吧！检查不通过的组件无法上传。
-
-```
-oawidget-cli -t
-```
-
-### 打包构建
-
-配置文件有效性已测试通过，马上就要大功告成了，记得执行构建命令，打包编译你的开发成果.
-
-```
-oawidget-cli -b
-```
 
 ### 上传组件到平台组件中心
 
 执行这个命令，你的组件就进入了平台组件中心。
 
 ```
-oawidget-cli -p
+oawidget-cli publish
 ```
 
 若是第一次发布，请到 [运营活动编辑平台](http://eop.baidu.com)，查询你的 *用户名*、*token*，并作为认证码，按引导输入。

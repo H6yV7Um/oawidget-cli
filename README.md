@@ -1,18 +1,22 @@
 # oawidget-cli
 
-基于san的组件库cli工具
+oap-widget CLI
 
 ```
-  Usage: oawidget [options]
+    Usage: oawidget <command> [options]
 
-  Options:
-    -V, --version                   output the version number
-    -c, --create                    创建项目脚手架
-    -v, --view                      组件效果预览
-    -t, --test                      组件规范检查
-    -b, --build                     组件打包构建
-    -p, --publish                   组件发布上线
-    --config [key=value]            修改oawidget配置项
-    --config list                   列出oawidget配置项
-    -h, --help                      output usage information
+    运营活动平台化-组件开发CLI工具
+
+    Commands:
+
+        init <cmptName>     scaffold with specifed template, named as <cmptName>
+        debug               launch a server for debugging
+        publish             inspect xx.editor.js file, build source code then deploy component to `OAP SERVER`
+
+    Options:
+
+        -h, --help                  output usage infomation
+        -v, --version               output the version number
+        -c, --config list           output config list
+        -c, --config [key=value]    enable configure userName/token/uploadUrl
 ```

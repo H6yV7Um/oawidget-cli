@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const init = require('../lib/init');
 const help = require('../lib/help');
-const debug = require('../lib/debug');
-const config = require('../lib/config');
 const version = require('../lib/version');
+const config = require('../lib/config');
+const init = require('../lib/init');
+const debug = require('../lib/debug');
 const publish = require('../lib/publish');
 
 program
